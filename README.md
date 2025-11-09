@@ -1,2 +1,1 @@
-# Joelgracious.com
-Joe store
+# Joe stores
