@@ -1,0 +1,21 @@
+import React, { useEffect, useState } from 'react';
+import ProductCard from '../components/ProductCard';
+
+export default function Home() {
+  const [products, setProducts] = useState([]);
+  useEffect(() => {
+    fetch('http://localhost:3001/api/products')
+      .then(res => res.json())
+      .then(data => setProducts(data));
+  }, []);
+  return (
+    <div>
+      <h1>Joel Gracious Collection</h1>
+      <div style={{ display: "flex", flexWrap: "wrap" }}>
+        {products.map(product => (
+          <ProductCard key={product._id} product={product} />
+        ))}
+      </div>
+    </div>
+  );
+}
